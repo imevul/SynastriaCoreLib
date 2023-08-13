@@ -30,7 +30,7 @@ end
 
 -- Credit: Synastria - meh321
 function SynastriaCoreLib.CheckItemValid(itemId)
-    if not itemId or itemId <= 0 or ItemAttuneSkip == nil then return 0 end
+    if not itemId or type(itemId) ~= "number" or itemId <= 0 or ItemAttuneSkip == nil then return 0 end
     local _, _, _, itemLevel, itemMinLevel, itemType, itemSubType, _, itemEquipLoc = GetItemInfo("item:" .. itemId)
     if not itemEquipLoc or string.len(itemEquipLoc) == 0 then return 0 end
     if itemEquipLoc == "INVTYPE_NON_EQUIP" then return 0 end
@@ -85,25 +85,27 @@ function SynastriaCoreLib.CheckItemValid(itemId)
 end
 
 function SynastriaCoreLib.IsItemValid(itemId)
+    if type(itemId) ~= "number" then return false end
 	return SynastriaCoreLib.CheckItemValid(itemId) > 0
 end
 
 function SynastriaCoreLib.GetAttune(itemId)
-	if ItemAttuneHas == nil then
-		return 0
-	end
+	if ItemAttuneHas == nil or type(itemId) ~= "number" then return 0 end
 
 	return ItemAttuneHas[itemId] or 0
 end
 
 function SynastriaCoreLib.IsAttuned(itemId)
+    if type(itemId) ~= "number" then return false end
 	return SynastriaCoreLib.GetAttune(itemId) >= 100
 end
 
 function SynastriaCoreLib.IsAttunable(itemId)
+    if type(itemId) ~= "number" then return false end
 	return SynastriaCoreLib.IsItemValid(itemId) and not SynastriaCoreLib.IsAttuned(itemId)
 end
 
 function SynastriaCoreLib.HasAttuneProgress(itemId)
+    if type(itemId) ~= "number" then return false end
 	return SynastriaCoreLib.IsItemValud(itemId) and SynastriaCoreLib.GetAttune(itemId) > 0 and not SynastriaCoreLib.IsAttuned(itemId)
 end
