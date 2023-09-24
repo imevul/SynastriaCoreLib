@@ -1,7 +1,8 @@
 # SynastriaCoreLib
 
-A collection of functions needed by other addons
+A collection of common functions needed by other addons
 
 ## Installation
 
-Extract to Interface/AddOns and enable the addon in-game
+1. Download the [latest release](https://github.com/imevul/SynastriaCoreLib/releases)
+2. Extract to Interface/AddOns and enable the addon in-game
