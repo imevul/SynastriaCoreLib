@@ -107,5 +107,5 @@ end
 
 function SynastriaCoreLib.HasAttuneProgress(itemId)
     if type(itemId) ~= "number" then return false end
-	return SynastriaCoreLib.IsItemValud(itemId) and SynastriaCoreLib.GetAttune(itemId) > 0 and not SynastriaCoreLib.IsAttuned(itemId)
+	return SynastriaCoreLib.IsItemValid(itemId) and SynastriaCoreLib.GetAttune(itemId) > 0 and not SynastriaCoreLib.IsAttuned(itemId)
 end
