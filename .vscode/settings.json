@@ -4,6 +4,16 @@
         "ItemAttuneHas",
         "UnitClass",
         "ItemAttuneSkip",
-        "GetItemInfo"
+        "GetItemInfo",
+        "LibStub",
+        "GetItemStats",
+        "CanAttuneItemHelper",
+        "GetItemAttuneProgress",
+        "GetAttuneAffixName",
+        "GetPerkAcquired",
+        "GetPerkActive",
+        "GetCustomGameDataCount",
+        "GetCustomGameDataIndex",
+        "GetCustomGameData"
     ]
 }
