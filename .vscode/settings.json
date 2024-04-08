@@ -14,6 +14,24 @@
         "GetPerkActive",
         "GetCustomGameDataCount",
         "GetCustomGameDataIndex",
-        "GetCustomGameData"
+        "GetCustomGameData",
+        "ChatFrame_AddMessageEventFilter",
+        "ChatFrame_RemoveMessageEventFilter",
+        "GetPerkTaskProg",
+        "PerkMgrPerks",
+        "GetPerkLimit",
+        "PerkMgrTaskHeader",
+        "PerkMgrTaskAll",
+        "SetPerkActive",
+        "PerkMgrSets",
+        "GetPerkOptionsInfo",
+        "SetPerkOptions",
+        "GetPerkOptions",
+        "PerkMgrPoints",
+        "time",
+        "SendChatMessage",
+        "GetItemAttuneOverWrite",
+        "GetAttuneStatName",
+        "GetItemAttuneOverwrite"
     ]
 }

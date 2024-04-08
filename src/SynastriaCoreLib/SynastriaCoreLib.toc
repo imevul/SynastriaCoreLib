@@ -2,11 +2,11 @@
 ## Title: SynastriaCoreLib-1.0
 ## Notes: A library of functions from Synastria
 ## Author: Imevul, meh321
-## Version: 1.0.5-Release
+## Version: 1.0.6-Release
 ## X-Category: Imevul
 
 #@no-lib-strip@
 Libs\LibStub\LibStub.lua
 #@end-no-lib-strip@
 
-SynastriaCoreLib-1.0\SynastriaCoreLib.xml
+SynastriaCoreLib-1.0\SynastriaCoreLib-1.0.lua
