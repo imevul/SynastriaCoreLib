@@ -32,6 +32,25 @@
         "SendChatMessage",
         "GetItemAttuneOverWrite",
         "GetAttuneStatName",
-        "GetItemAttuneOverwrite"
+        "GetItemAttuneOverwrite",
+        "CreateFrame",
+        "C_Timer",
+        "GetItemInfoInstant",
+        "IsAttunableBySomeone",
+        "OnCustomGameData",
+        "OnCustomGameDataFinish",
+        "OnCustomGameInit",
+        "GetItemInfoCustom",
+        "GetItemExtraCustom",
+        "CustomGetRaceId",
+        "CustomGetClassId",
+        "CustomIsClassMask",
+        "MAX_ITEMID",
+        "GameTooltip",
+        "bit",
+        "wipe",
+        "GetFramerate",
+        "GetPerkTaskAssign1",
+        "GetPerkTaskAssign2"
     ]
 }
