@@ -218,9 +218,17 @@ function SynastriaCoreLib._GetModuleVersion(name)
     return moduleVersions[name] or 0
 end
 
+function SynastriaCoreLib.generateItemLink(itemId, suffixId, name, color)
+    color = color or 'ffffff'
+    name = name or ''
+    suffixId = suffixId or 0
+
+    return ('|cff%s|Hitem:%d:0:0:0:0:0:%d:%d:%d|h[%s]|h|r'):format(color, itemId, 0, suffixId, 0, name)
+end
+
 function SynastriaCoreLib.parseItemIdAndLink(itemIdOrLink, suffixId)
     if type(itemIdOrLink) == 'number' then
-        return itemIdOrLink, ('|cff%s|Hitem:%d:0:0:0:0:0:%d:%d:%d|h[%s]|h|r'):format('ffffff', itemIdOrLink, 0, suffixId or 0, 0, '')
+        return itemIdOrLink, SynastriaCoreLib.generateItemLink(itemIdOrLink, suffixId)
     elseif type(itemIdOrLink) == 'string' then
         return SynastriaCoreLib.parseItemId(itemIdOrLink, 0), itemIdOrLink
     end
