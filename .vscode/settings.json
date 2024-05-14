@@ -51,6 +51,10 @@
         "wipe",
         "GetFramerate",
         "GetPerkTaskAssign1",
-        "GetPerkTaskAssign2"
+        "GetPerkTaskAssign2",
+        "GetAttuneAffixMask",
+        "GetItemLinkAttuneProgress",
+        "GetItemAffixMask",
+        "ItemAttuneAffix"
     ]
 }

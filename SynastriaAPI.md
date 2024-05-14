@@ -62,6 +62,8 @@ Contains key/val pairs for attunable stats for an item. Note! Only populated aft
 ### ItemAttuneOverwrite
 Contains key/val pairs for stats gained for attunable weapons. Not always populated, and is probably not intended for use.
 
+### ItemAttuneAffix
+Contains all affixes, and a table with the stats they would grant
 
 ## Functions
 ### CanAttuneItemHelper(itemId) -> int
