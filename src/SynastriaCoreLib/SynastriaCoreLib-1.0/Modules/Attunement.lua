@@ -1,4 +1,4 @@
-local MODULE_NAME, MODULE_VERSION = 'Attunement', 2
+local MODULE_NAME, MODULE_VERSION = 'Attunement', 3
 local SynastriaCoreLib = LibStub and LibStub('SynastriaCoreLib-1.0', true)
 if not SynastriaCoreLib or SynastriaCoreLib:_GetModuleVersion(MODULE_NAME) >= MODULE_VERSION then return end
 
@@ -39,15 +39,16 @@ function SynastriaCoreLib.IsItemValid(itemIdOrLink)
 	return SynastriaCoreLib.CheckItemValid(itemId) > 0
 end
 
-function SynastriaCoreLib.GetAttuneProgress(itemIdOrLink, suffixId)
+function SynastriaCoreLib.GetAttuneProgress(itemIdOrLink, suffixId, forgedType)
     if (type(itemIdOrLink) ~= 'number' and type(itemIdOrLink) ~= 'string') or not SynastriaCoreLib.isLoaded() then return 0 end
+    if type(forgedType) == 'number' and (forgedType < 0 or forgedType > 3) then return 0 end
     local itemId, itemLink = SynastriaCoreLib.parseItemIdAndLink(itemIdOrLink)
 
-    if itemLink then
+    if itemLink and type(forgedType) == 'number' then
         return GetItemLinkAttuneProgress(itemLink) or 0
     end
 
-    return GetItemAttuneProgress(itemId, suffixId) or 0
+    return GetItemAttuneProgress(itemId, suffixId, forgedType) or 0
 end
 
 function SynastriaCoreLib.IsAttuned(itemIdOrLink)
@@ -62,6 +63,13 @@ function SynastriaCoreLib.IsAttuned(itemIdOrLink)
     end ]]
 
     return ret >= 100
+end
+
+function SynastriaCoreLib.HasAttunedAnyVariant(itemIdOrLink)
+    if (type(itemIdOrLink) ~= 'number' and type(itemIdOrLink) ~= 'string') or not SynastriaCoreLib.isLoaded() then return false end
+    local itemId, _ = SynastriaCoreLib.parseItemIdAndLink(itemIdOrLink)
+
+    return HasAttunedAnyVariantOfItem(itemId) or false
 end
 
 function SynastriaCoreLib.IsAttunable(itemIdOrLink)

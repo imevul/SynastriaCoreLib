@@ -55,6 +55,7 @@
         "GetAttuneAffixMask",
         "GetItemLinkAttuneProgress",
         "GetItemAffixMask",
-        "ItemAttuneAffix"
+        "ItemAttuneAffix",
+        "HasAttunedAnyVariantOfItem"
     ]
 }

@@ -78,11 +78,16 @@ Get a list of tables (key/val pairs) when attuning weapons
 ### GetAttuneStatName(statId) -> string
 Returns the name of a stat, given a statId
 
-### GetItemAttuneProgress(itemId) -> int
-Returns the attunment progress for an itemId
+### GetItemAttuneProgress(itemid, affixid, titanforged) -> int
+Returns the attunment progress for an itemId (optional affixId, optional titanforged)
+1 = Titanforged, 2 = Warforged, 3 = Lightforged
 
 ### GetAttuneAffixName(itemId, affixId) -> string
 Returns the affix name
+
+### HasAttunedAnyVariantOfItem(itemId) -> bool
+
+
 
 # Perks
 (Still unconfirmed. Most are probably not intended for use)
