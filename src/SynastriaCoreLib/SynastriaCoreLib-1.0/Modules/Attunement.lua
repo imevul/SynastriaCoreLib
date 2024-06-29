@@ -1,4 +1,4 @@
-local MODULE_NAME, MODULE_VERSION = 'Attunement', 3
+local MODULE_NAME, MODULE_VERSION = 'Attunement', 4
 local SynastriaCoreLib = LibStub and LibStub('SynastriaCoreLib-1.0', true)
 if not SynastriaCoreLib or SynastriaCoreLib:_GetModuleVersion(MODULE_NAME) >= MODULE_VERSION then return end
 
@@ -49,6 +49,12 @@ function SynastriaCoreLib.GetAttuneProgress(itemIdOrLink, suffixId, forgedType)
     end
 
     return GetItemAttuneProgress(itemId, suffixId, forgedType) or 0
+end
+
+function SynastriaCoreLib.GetItemAttuneForge(itemIdOrLink)
+    if (type(itemIdOrLink) ~= 'number' and type(itemIdOrLink) ~= 'string') or not SynastriaCoreLib.isLoaded() then return -1 end
+    local itemId, _ = SynastriaCoreLib.parseItemIdAndLink(itemIdOrLink)
+    return GetItemAttuneForge(itemId) or -1
 end
 
 function SynastriaCoreLib.IsAttuned(itemIdOrLink)
