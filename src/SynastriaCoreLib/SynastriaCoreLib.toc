@@ -2,7 +2,7 @@
 ## Title: SynastriaCoreLib-1.0
 ## Notes: A library of functions from Synastria
 ## Author: Imevul, meh321
-## Version: 1.0.12-Release
+## Version: 1.0.13-Release
 ## X-Category: Imevul
 
 #@no-lib-strip@

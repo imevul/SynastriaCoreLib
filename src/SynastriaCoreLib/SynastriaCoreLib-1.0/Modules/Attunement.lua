@@ -1,10 +1,19 @@
+local _, NS = ...
 local MODULE_NAME, MODULE_VERSION = 'Attunement', 4
+
+NS.DebugLog(MODULE_NAME, MODULE_VERSION, 'Start')
+if not NS.loaded then return end
+MODULE_VERSION = NS.SYNASTRIACORELIB_MINOR * 100 + MODULE_VERSION
+
 local SynastriaCoreLib = LibStub and LibStub('SynastriaCoreLib-1.0', true)
-if not SynastriaCoreLib or SynastriaCoreLib:_GetModuleVersion(MODULE_NAME) >= MODULE_VERSION then return end
+if not SynastriaCoreLib then return end
+
+NS.DebugLog(MODULE_NAME, MODULE_VERSION, 'Try load')
 
 SynastriaCoreLib.Attunement = SynastriaCoreLib.Attunement or {}
 if not SynastriaCoreLib._RegisterModule(MODULE_NAME, SynastriaCoreLib.Attunement, MODULE_VERSION) then return end
 
+NS.DebugLog(MODULE_NAME, MODULE_VERSION, 'Loaded')
 
 -- @deprecated
 function SynastriaCoreLib.getItemStatus(itemLink)
@@ -260,3 +269,5 @@ function SynastriaCoreLib.ItemHasBaseResist(itemId)
     if not itemTags2 then return false end
     return bit.band(itemTags2, 4) ~= 0
 end
+
+NS.DebugLog(MODULE_NAME, MODULE_VERSION, 'Done')
