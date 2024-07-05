@@ -88,7 +88,7 @@ local function updateFeeds(self, elap)
     end
 
     if SynastriaCoreLib.LDB.resourceBankFeed then
-        local _, total, count = GetResources()
+        local _, total, _ = GetResources()
         SynastriaCoreLib.LDB.resourceBankFeed.text = ('Resource Bank: %s'):format(total)
     end
 end

@@ -59,6 +59,10 @@
         "HasAttunedAnyVariantOfItem",
         "GetItemAttuneForge",
         "CastSpellByName",
-        "OpenPerkMgr"
+        "OpenPerkMgr",
+        "OpenResourceSummary",
+        "OpenAttuneSummary",
+        "strmatch",
+        "geterrorhandler"
     ]
 }
