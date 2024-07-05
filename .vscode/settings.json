@@ -57,6 +57,8 @@
         "GetItemAffixMask",
         "ItemAttuneAffix",
         "HasAttunedAnyVariantOfItem",
-        "GetItemAttuneForge"
+        "GetItemAttuneForge",
+        "CastSpellByName",
+        "OpenPerkMgr"
     ]
 }

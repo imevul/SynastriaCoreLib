@@ -38,6 +38,16 @@ Consider using the helper functions in SynastriaCoreLib that takes care of a lot
 ### CustomIsClassMask(mask) -> bool
 ### GetItemTagsCustom(itemId) -> int, ...
 
+### OpenAttuneSummary()
+Opens the attunement window. Note that the stats are not refreshed when the window is opened this way! To refresh the attunement stats, you have to use the spell
+
+### OpenPerkMgr()
+Opens the Perk manager window
+
+### OpenResourceSummary()
+Opens the Resource Bank window
+
+
 ## Events
 Important! Before defining any event handler function, you should store any existing reference and make sure you call it first thing in your function. Otherwise, other addons depending on said event will break!
 
