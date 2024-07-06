@@ -101,6 +101,8 @@ Returns the affix name
 
 ### HasAttunedAnyVariantOfItem(itemId) -> bool
 
+### GetItemAffixMask(itemId) -> possibleMask1 (uint32), possibleMask2 (uint32), attunedMask1 (uint32), attunedMask2 (uint32), activeIndex (int)
+
 
 
 # Perks
