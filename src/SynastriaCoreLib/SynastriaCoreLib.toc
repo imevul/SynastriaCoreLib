@@ -8,7 +8,7 @@
 #@no-lib-strip@
 Libs\LibStub\LibStub.lua
 Libs\CallbackHandler-1.0\CallbackHandler-1.0.xml
-Libs\LibDataBroker-1.1\LibDataBroker-1.1.xml
+Libs\LibDataBroker-1.1\LibDataBroker-1.1.lua
 #@end-no-lib-strip@
 
 SynastriaCoreLib-1.0\Classes\ItemCache.lua
