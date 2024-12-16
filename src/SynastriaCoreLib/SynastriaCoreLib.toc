@@ -2,8 +2,9 @@
 ## Title: SynastriaCoreLib-1.0
 ## Notes: A library of functions from Synastria
 ## Author: Imevul, meh321
-## Version: 1.0.20-Release
+## Version: 1.0.21-Release
 ## X-Category: Imevul
+## SavedVariables: SynastriaCoreLibDB
 
 #@no-lib-strip@
 Libs\LibStub\LibStub.lua
@@ -11,6 +12,7 @@ Libs\CallbackHandler-1.0\CallbackHandler-1.0.xml
 Libs\LibDataBroker-1.1\LibDataBroker-1.1.lua
 #@end-no-lib-strip@
 
+SynastriaCoreLib-1.0\Classes\Cache.lua
 SynastriaCoreLib-1.0\Classes\ItemCache.lua
 
 SynastriaCoreLib-1.0\SynastriaCoreLib-1.0.lua
