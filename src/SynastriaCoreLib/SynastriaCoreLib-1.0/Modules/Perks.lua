@@ -59,14 +59,12 @@ function SynastriaCoreLib.Perks.GetActiveTasks()
                     if bit.band(perk.flags, 0x400) ~= 0x400 then
                         local taskId = GetPerkTaskAssign2(pivotId or 0)
                         local task = PerkMgrTaskAll[taskId or 0]
-                        local color = ('|cff%s%s|r'):format(SynastriaCoreLib.Perks.CategoryColors[perk.cat] or 'ffffff',
-                            '%s')
+                        local color = ('|cff%s%s|r'):format(SynastriaCoreLib.Perks.CategoryColors[perk.cat] or 'ffffff', '%s')
 
                         if task then
                             local progress = ''
                             if (task.req0 or 0) > 0 then
-                                progress = ('    %d / %d'):format(SynastriaCoreLib.Perks.GetTaskProgress(pivotId),
-                                    task.req0 or 0)
+                                progress = ('    %d / %d'):format(SynastriaCoreLib.Perks.GetTaskProgress(pivotId), task.req0 or 0)
                             end
 
                             table.insert(ret, {
