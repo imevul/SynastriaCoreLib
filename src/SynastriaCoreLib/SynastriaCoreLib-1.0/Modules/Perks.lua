@@ -59,12 +59,14 @@ function SynastriaCoreLib.Perks.GetActiveTasks()
                     if bit.band(perk.flags, 0x400) ~= 0x400 then
                         local taskId = GetPerkTaskAssign2(pivotId or 0)
                         local task = PerkMgrTaskAll[taskId or 0]
-                        local color = ('|cff%s%s|r'):format(SynastriaCoreLib.Perks.CategoryColors[perk.cat] or 'ffffff', '%s')
+                        local color = ('|cff%s%s|r'):format(SynastriaCoreLib.Perks.CategoryColors[perk.cat] or 'ffffff',
+                            '%s')
 
                         if task then
                             local progress = ''
                             if (task.req0 or 0) > 0 then
-                                progress = ('    %d / %d'):format(SynastriaCoreLib.Perks.GetTaskProgress(pivotId), task.req0 or 0)
+                                progress = ('    %d / %d'):format(SynastriaCoreLib.Perks.GetTaskProgress(pivotId),
+                                    task.req0 or 0)
                             end
 
                             table.insert(ret, {
@@ -86,7 +88,7 @@ function SynastriaCoreLib.Perks.GetActiveTasks()
             end
         end
 
-        table.sort(ret, function(a, b) return a.cat < b.cat end)
+        table.sort(ret, function(a, b) return a.cat == b.cat and a.perkName < b.perkName or a.cat < b.cat end)
 
         return ret
     end)
@@ -94,20 +96,27 @@ end
 
 function SynastriaCoreLib.Perks.GetPerkTaskText(perkId, task)
     if not task or not task.text then return '' end
-    local m = task.text:match('^#(%d+)$')
-    while m and task do
-        if PerkMgrTaskAll[m] then
-            task = PerkMgrTaskAll[m]
-            m = task.text:match('^#(%d+)$')
-        else
-            break
+
+    local cachedTask = task
+    local redirectedId = task.text:match('^#(%d+)$')
+
+    if redirectedId then
+        local redirectedTask = PerkMgrTaskAll[tonumber(redirectedId)]
+        if redirectedTask then
+            cachedTask = redirectedTask
         end
     end
-    local ret = task.text or ''
 
-    local ss = ''
-    if task.req0 or 0 > 1 then ss = 's' end
-    return ret:gsub('$c', '|cffffaaaa'):gsub('$C', '|r'):gsub('$0d', '|cffffaaaa' .. (task.req0 or 0) .. '|r'):gsub('$0s', ss)
+    local taskText = cachedTask.text or ''
+    local taskGoal = { task.req0 or 0, task.req1 or 0 }
+    local pluralSuffix = (cachedTask.req0 or 0) > 1 and 's' or ''
+
+    return taskText
+        :gsub('$c', '|cffffaaaa')
+        :gsub('$C', '|r')
+        :gsub('$0d', '|cffffaaaa' .. taskGoal[1] .. '|r')
+        :gsub('$1D', '|cffffaaaa' .. taskGoal[2] .. '|r')
+        :gsub('$0s', pluralSuffix)
 end
 
 function SynastriaCoreLib.Perks.GetActiveTasksText()
@@ -140,7 +149,7 @@ function SynastriaCoreLib.Perks.HasPerk(perkId)
     return GetPerkAcquired(perkId) or 0
 end
 
-function SynastriaCoreLib.Perks.GetTaskProgress(pivotId)    -- from GetPerkTaskAssign1
+function SynastriaCoreLib.Perks.GetTaskProgress(pivotId) -- from GetPerkTaskAssign1
     if type(pivotId) ~= 'number' or not SynastriaCoreLib.isLoaded() then return false end
     return GetPerkTaskProg(pivotId)
 end
