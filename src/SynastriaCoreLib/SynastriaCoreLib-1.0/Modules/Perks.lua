@@ -1,5 +1,5 @@
 local _, NS = ...
-local MODULE_NAME, MODULE_VERSION = 'Perks', 5
+local MODULE_NAME, MODULE_VERSION = 'Perks', 6
 -- TODO: Still a work in progress! Use at your own risk!
 
 NS.DebugLog(MODULE_NAME, MODULE_VERSION, 'Start')
